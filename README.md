@@ -2,6 +2,7 @@
 
 
 [root@cnode130 ktest]# make
+```bash
 touch "/root/workspace/ktest/build/Makefile"
 make -C /usr/src/kernels/5.14.0-580.el9.x86_64 	 M=/root/workspace/ktest/build src=/root/workspace/ktest  modules
 make[1]: Entering directory '/usr/src/kernels/5.14.0-580.el9.x86_64'
@@ -12,6 +13,7 @@ make[1]: Entering directory '/usr/src/kernels/5.14.0-580.el9.x86_64'
   BTF [M] /root/workspace/ktest/build/kutest.ko
 Skipping BTF generation for /root/workspace/ktest/build/kutest.ko due to unavailability of vmlinux
 make[1]: Leaving directory '/usr/src/kernels/5.14.0-580.el9.x86_64'
+```
 
 
 [root@cnode130 ktest]# ll build/kutest.ko
