@@ -128,7 +128,8 @@ void ktest_init(ktest* t, const char* name, test_func function)
 
 ktest *ktest_new(const char* name, test_func function)
 {
-    ktest* tc = KTEST_ALLOC(ktest);
+    ktest* tc = NULL;
+	KTEST_ALLOC_PTR(tc);
     ktest_init(tc, name, function);
     return tc;
 }
@@ -136,13 +137,14 @@ ktest *ktest_new(const char* name, test_func function)
 void ktest_delete(ktest* t)
 {
     ktest_str_free(t->name);
+    KTEST_FREE(t->message);
     KTEST_FREE(t);
     return;
 }
 
 void ktest_run(ktest* tc)
 {
-    LOG_PRINT("=========> running %-20s  <=========", tc->name);
+    LOG_PRINT("===========> running %s <===========", tc->name);
 
     tc->ran = 1;
     tc->function(tc);
@@ -238,7 +240,8 @@ void ktest_suit_init(ktest_suit* test_suite)
 
 ktest_suit *ktest_suit_new(void)
 {
-    ktest_suit* test_suite = KTEST_ALLOC(ktest_suit);
+    ktest_suit* test_suite = NULL;
+    KTEST_ALLOC_PTR(test_suite);
     ktest_suit_init(test_suite);
     return test_suite;
 }

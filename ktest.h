@@ -12,7 +12,7 @@ char *ktest_str_alloc(int size);
 void ktest_str_free(const char *str);
 char *ktest_str_copy(const char *old);
 
-#define KTEST_ALLOC(TYPE) ((TYPE *)kmalloc(sizeof(TYPE), GFP_KERNEL))
+#define KTEST_ALLOC_PTR(ptr) (ptr = (typeof(*ptr) *)kmalloc(sizeof(*ptr), GFP_KERNEL))
 
 #define KTEST_FREE(ptr) \
     do                  \

@@ -1,7 +1,10 @@
 obj-m := kutest.o
 
-kutest-y := ktest.o ktest_main.o \
-			kt_basic.o kt_btree.o kt_radix_tree.o 
+
+KT_FILES ?= $(notdir $(patsubst %.c,%.o,$(wildcard $(PWD)/kt_*.c)))
+$(info ==> ${KT_FILES})
+
+kutest-y := ktest.o ktest_main.o ${KT_FILES} 
 
 
 CURRENT_PATH:=${PWD} 
