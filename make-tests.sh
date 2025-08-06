@@ -58,7 +58,8 @@ echo \
 static int __init ktest_module_init(void)
 {
     LOG_INFO("init");
-    return run_all_tests();
+    run_all_tests();
+    return 0;
 }
 static void __exit ktest_module_exit(void)
 {

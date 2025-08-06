@@ -19,7 +19,7 @@ void btree_example_init(void)
     unsigned long long key;
     char *val;
     btree_for_each_safe64(&tbt, key, val) {
-    	LOG_INFO("key: %llu, value: %s", key, val);
+        LOG_INFO("key: %llu, value: %s", key, val);
     }
     return;
 }
